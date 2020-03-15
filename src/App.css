@@ -1,0 +1,17 @@
+.google-places-autocomplete__suggestions-container {
+    position: absolute;
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    z-index: 10;
+    width: 90%;
+}
+
+.google-places-autocomplete__suggestion {
+    padding: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.google-places-autocomplete__suggestion:hover {
+    background-color: rgba(0, 0, 0, 0.09);
+    cursor: pointer;
+}
