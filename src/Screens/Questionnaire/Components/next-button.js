@@ -1,11 +1,11 @@
 import React from 'react';
 
 export const NextButton = (props) => {
-    //TODO: write logic 
+    //TODO: write logic for advancing n
 
     return (
         <div className="card-footer">
-            <a class="btn btn-primary btn-lg" onClick={() => props.onNext()} href="#" role="button">{props.children || "Next"}</a>
+            <a className="btn btn-primary btn-lg" onClick={() => props.onNext()} href="javascript:;" role="button">{props.children || "Next"}</a>
         </div>
     )
 }

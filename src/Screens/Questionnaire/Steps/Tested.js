@@ -12,12 +12,12 @@ export const Tested = (props) => {
     if (step < props.step) return null;
 
     const _nextButton = () => {
-        if (step == props.step && positive !== null) {
-            if (positive == true && (testLocation == null || cleared == null)) return null;
-            if (positive == true && cleared == true && clearedDate == null) return null;
+        if (step === props.step && positive !== null) {
+            if (positive === true && (testLocation === null || cleared === null)) return null;
+            if (positive === true && cleared === true && clearedDate === null) return null;
 
             return (
-                <NextButton onNext={() => props.onNext()} />
+                <NextButton onNext={() => props.onNext(1)} />
             )
         }
     }
@@ -48,8 +48,8 @@ export const Tested = (props) => {
     }
 
     return (
-        <div class="card mb-3">
-            <div class="card-body">
+        <div className="card mb-3">
+            <div className="card-body">
                 <h3>Have you tested positive for COVID-19?</h3>
                 <Boolean value={positive} setValue={setPositive} />
                 {_isPositive()}

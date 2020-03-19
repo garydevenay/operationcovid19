@@ -8,15 +8,17 @@ export const Symptoms = (props) => {
     const step = useContext(QuestionnaireContext);
     const [ symptoms, setSymptoms ] = useState([]);
 
+    if (step < props.step) return null;
+
     const _nextButton = () => {
-        if (step == props.step && symptoms !== null) {
-            return <NextButton onNext={() => props.onNext()} />
+        if (step === props.step && symptoms !== null) {
+            return <NextButton onNext={() => props.onNext(1)} />
         }
     }
 
     return (
-        <div class="card mb-3">
-            <div class="card-body">
+        <div className="card mb-3">
+            <div className="card-body">
                 <h3>Do you have any of the following symptoms?</h3>
                 <CheckboxList options={potentialSymptoms} />
             </div>

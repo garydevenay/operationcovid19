@@ -9,12 +9,12 @@ export const Boolean = (props) => {
     }
 
     return (
-        <div class="btn-group btn-group-toggle mt-3 mb-4" data-toggle="buttons">
-            <label class="btn btn-lg btn-primary">
-                <input type="radio" name="contact" id="yes" checked={boolean == true} value={true} onClick={() => setValue(true)} /> Yes
+        <div className="btn-group btn-group-toggle mt-3 mb-4" data-toggle="buttons">
+            <label className="btn btn-lg btn-primary">
+                <input type="radio" name="contact" id="yes" checked={boolean === true} value={true} onClick={() => setValue(true)} /> Yes
             </label>
-            <label class="btn btn-lg btn-primary">
-                <input type="radio" name="contact" id="no" checked={boolean == false} value={false} onClick={(() => setValue(false))} /> No
+            <label className="btn btn-lg btn-primary">
+                <input type="radio" name="contact" id="no" checked={boolean === false} value={false} onClick={(() => setValue(false))} /> No
             </label>
         </div>
     )

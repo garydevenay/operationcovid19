@@ -9,6 +9,7 @@
     "bootstrap": "^4.4.1",
     "bootstrap-datepicker": "^1.9.0",
     "hookrouter": "^1.2.3",
+    "moment": "^2.24.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-google-places-autocomplete": "^1.6.2",

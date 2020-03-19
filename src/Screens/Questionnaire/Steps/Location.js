@@ -9,7 +9,7 @@ export const Location = (props) => {
     if (step < props.step) return null;
 
     const _nextButton = () => {
-        if (step == props.step && location !== null) {
+        if (step === props.step && location !== null) {
             return (
                 <NextButton onNext={() => props.onNext(1)} />
             )
@@ -19,8 +19,8 @@ export const Location = (props) => {
     }
 
     return (
-        <div class="card mb-3">
-            <div class="card-body">
+        <div className="card mb-3">
+            <div className="card-body">
                 <h3>Where are you located?</h3>
                 <LocationAutocomplete value={location} setValue={setLocation} />
             </div>

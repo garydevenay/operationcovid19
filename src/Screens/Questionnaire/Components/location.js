@@ -5,7 +5,7 @@ export const LocationAutocomplete = (props) => {
     //TODO: write state logic for selecting a place.
 
     return (
-        <div class="input-group-lg mt-3 mb-3">
+        <div className="input-group-lg mt-3 mb-3">
             <GooglePlacesAutocomplete 
                 inputClassName="form-control" 
                 placeholder={props.placeholder || "Your current location"}
