@@ -20,7 +20,7 @@ export const Symptoms = (props) => {
         <div className="card mb-3">
             <div className="card-body">
                 <h3>Do you have any of the following symptoms?</h3>
-                <CheckboxList options={potentialSymptoms} />
+                <CheckboxList options={potentialSymptoms} setValue={(x) => setSymptoms(x)} />
             </div>
             {_nextButton()}
         </div>
