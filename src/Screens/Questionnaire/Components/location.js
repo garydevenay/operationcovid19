@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
 
 export const LocationAutocomplete = (props) => {
+    //TODO: write state logic for selecting a place.
+
     return (
         <div class="input-group-lg mt-3 mb-3">
             <GooglePlacesAutocomplete 

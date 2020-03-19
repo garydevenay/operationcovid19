@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { QuestionnaireContext } from '../QuestionnaireContext';
-import { Boolean, LocationAutocomplete, NextButton } from '../Components';
+import { Boolean, LocationAutocomplete, NextButton, DatePicker } from '../Components';
 
 export const Tested = (props) => {
     const step = useContext(QuestionnaireContext)
@@ -9,7 +9,7 @@ export const Tested = (props) => {
     const [cleared, setCleared] = useState(null);
     const [clearedDate, setClearedDate] = useState(null);
 
-    //if (step < props.step) return null;
+    if (step < props.step) return null;
 
     const _nextButton = () => {
         if (step == props.step && positive !== null) {
@@ -42,7 +42,7 @@ export const Tested = (props) => {
         return (
             <>
                 <h4>When were you cleared?</h4>
-                //Date
+                <DatePicker value={clearedDate} setValue={setClearedDate} />
             </>
         )
     }

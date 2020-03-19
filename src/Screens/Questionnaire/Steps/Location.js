@@ -6,7 +6,7 @@ export const Location = (props) => {
     const step = useContext(QuestionnaireContext)
     const [location, setLocation] = useState(null);
 
-    //if (step < props.step) return null;
+    if (step < props.step) return null;
 
     const _nextButton = () => {
         if (step == props.step && location !== null) {

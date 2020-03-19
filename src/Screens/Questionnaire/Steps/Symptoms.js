@@ -1,6 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { QuestionnaireContext } from '../QuestionnaireContext';
-import { NextButton } from '../Components';
+import { NextButton, CheckboxList } from '../Components';
+
+const potentialSymptoms = require('../symptoms.json');
 
 export const Symptoms = (props) => {
     const step = useContext(QuestionnaireContext);
@@ -16,7 +18,7 @@ export const Symptoms = (props) => {
         <div class="card mb-3">
             <div class="card-body">
                 <h3>Do you have any of the following symptoms?</h3>
-                
+                <CheckboxList options={potentialSymptoms} />
             </div>
             {_nextButton()}
         </div>

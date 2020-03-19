@@ -1,0 +1,10 @@
+[
+    { "title": "A fever above 37.8°C (100°F)", "value": "fever" },
+    { "title": "Persistent cough", "value": "cough" },
+    { "title": "Tiredness", "value": "tiredness" },
+    { "title": "Aches and pains", "value": "aching" },
+    { "title": "Nasal congestion", "value": "nasal congestion" },
+    { "title": "Runny nose", "value": "runny nose" },
+    { "title": "Sore throat", "value": "sore throat" },
+    { "title": "Diarrhea", "value": "diarrhea" }
+]

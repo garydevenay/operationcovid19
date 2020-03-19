@@ -1,13 +1,13 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { QuestionnaireContext } from '../QuestionnaireContext';
-import { Boolean, NextButton } from '../Components';
+import { Boolean, NextButton, DatePicker } from '../Components';
 
 export const Contact = (props) => {
     const step = useContext(QuestionnaireContext)
     const [inContact, setInContact] = useState(null);
     const [inContactDate, setInContactDate] = useState(null); 
 
-    //if (step < props.step) return null;
+    if (step < props.step) return null;
 
     const _nextButton = () => {
         if (step == props.step && inContact !== null) {
@@ -23,7 +23,7 @@ export const Contact = (props) => {
         return (
             <>
                 <h4>When did you come in to contact?</h4>
-                // Date
+                <DatePicker value={inContactDate} setValue={setInContactDate} />
             </>
         )
     }
