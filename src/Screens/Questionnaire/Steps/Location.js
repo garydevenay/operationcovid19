@@ -11,7 +11,7 @@ export const Location = (props) => {
     const _nextButton = () => {
         if (step == props.step && location !== null) {
             return (
-                <NextButton onNext={() => props.onNext()} />
+                <NextButton onNext={() => props.onNext(1)} />
             )
         }
 

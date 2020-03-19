@@ -5,9 +5,7 @@ import { Location, Contact, Tested, Isolation, Symptoms } from './Steps';
 
 export const Questionnaire = () => {
     const [ step, setStep ] = useState(0);
-
-    const next = () => setStep(step + 1);
-    const previous = () => setStep(step - 1);
+    const advance = (n) => setStep(step + n);
 
     return (
         <QuestionnaireContext.Provider value={step}>
@@ -17,14 +15,14 @@ export const Questionnaire = () => {
                     <p class="lead">A small description of what this questionnaire is and what it will contribute towards.</p>
                     <hr class="my-4" />
                     <p>By clicking "Start" I agree that I am submitting my information to be part of the "Operation Covid-19" database which will display anonymised metrics publicly including my answers.</p>
-                    { step == 0 ? <a class="btn btn-primary btn-lg" onClick={() => next()} href="#" role="button">Start</a> : null}
+                    { step == 0 ? <a class="btn btn-primary btn-lg" onClick={() => advance(1)} href="#" role="button">Start</a> : null}
                 </div>
 
-                <Location onNext={() => next()} step={1} />
-                <Contact onNext={() => next()} step={2} />
-                <Tested onNext={() => next()} step={3} />
-                <Isolation onNext={() => next()} step={4} />
-                <Symptoms onNext={() => next()} step={5} />
+                <Location onNext={(n) => advance(n)} step={1} />
+                <Contact onNext={(n) => advance(n)} step={2} />
+                <Tested onNext={(n) => advance(n)} step={3} />
+                <Isolation onNext={(n) => advance(n)} step={4} />
+                <Symptoms onNext={(n) => advance(n)} step={5} />
             </div>
         </QuestionnaireContext.Provider>
     )
