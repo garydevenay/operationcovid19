@@ -10,6 +10,8 @@ import {
   Circle
 } from "react-google-maps";
 
+var DATA_SOURCE = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/03-19-2020.csv";
+
 var DARKMODE = [
   {
     elementType: "geometry",
@@ -322,13 +324,7 @@ class DemoApp extends React.PureComponent {
   }
 
   fetchCsv() {
-    const url = [
-      // Length issue
-      `https://raw.githubusercontent.com/CSSEGISandData`,
-      `/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/03-17-2020.csv`
-    ].join("");
-
-    return fetch(url).then(res => {
+    return fetch(DATA_SOURCE).then(res => {
       let reader = res.body.getReader();
       let decoder = new TextDecoder("utf-8");
 
