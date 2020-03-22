@@ -1,5 +1,11 @@
 // This currently defiines a dark blue style of the map.
-export const map_style = [
+const circle_style = { 
+  strokeWeight: 0, 
+  fillColor: "#FF0000", 
+  fillOpacity: 0.3 
+}
+
+const map_style = [
   {
     elementType: "geometry",
     stylers: [
@@ -257,3 +263,5 @@ export const map_style = [
     ]
   }
 ];
+
+export { circle_style, map_style };

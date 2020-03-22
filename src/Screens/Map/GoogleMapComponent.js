@@ -6,8 +6,8 @@ import {
   GoogleMap,
   Circle
 } from "react-google-maps";
-
-import { map_style } from "./style";
+import { api_url } from "./constants";
+import { circle_style, map_style } from "./style";
 
 
 function rescale(number) {
@@ -18,8 +18,7 @@ function rescale(number) {
 
 export const GoogleMapComponent = compose(
   withProps({
-    googleMapURL:
-      "https://maps.googleapis.com/maps/api/js?key=AIzaSyA9OllsNngBJVQYrL3d1bZuciubg7l0WhE&v=3.exp&libraries=geometry,drawing,places",
+    googleMapURL: api_url,
     loadingElement: <div style={{ height: `100%` }} />,
     containerElement: <div style={{ height: `400px` }} />,
     mapElement: <div style={{ height: `100%` }} />
@@ -30,7 +29,12 @@ export const GoogleMapComponent = compose(
   <GoogleMap
     defaultZoom={4}
     defaultCenter={{ lat: props.mapCenter.lat, lng: props.mapCenter.lng }}
-    defaultOptions={{ styles: map_style }}
+    defaultOptions={{ 
+      styles: map_style, 
+      streetViewControl: false, 
+      fullscreenControl: false,
+      mapTypeControlOptions: { mapTypeIds: [] }
+    }}
   >
     {props.locationReports.map(report => (
       <Circle
@@ -39,7 +43,7 @@ export const GoogleMapComponent = compose(
           lng: parseFloat(report.Longitude)
         }}
         radius={ rescale(report.Confirmed) }
-        options={{ strokeWeight: 0, fillColor: "#FF0000", fillOpacity: 0.3 }}
+        options={ circle_style }
       />
     ))}
   </GoogleMap>

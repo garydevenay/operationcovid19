@@ -1,6 +1,7 @@
 import React from "react";
 import Papa from "papaparse";
 
+import { default_location } from "./constants";
 import { data_source } from "./data";
 import { GoogleMapComponent } from "./GoogleMapComponent"
 
@@ -10,11 +11,7 @@ class MapComponent extends React.PureComponent {
     super(props);
     this.state = {
       locationReports: [],
-      centerPos: {
-        // Default to return UK
-        lat: 55.3781,
-        lng: -3.436
-      }
+      centerPos: default_location
     };
     this.getData = this.getData.bind(this);
   }
