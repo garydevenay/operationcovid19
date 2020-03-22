@@ -7,7 +7,10 @@ import {
 } from "react-google-maps";
 import { api_url } from "./constants";
 import { circle_style, map_style } from "./style";
+<<<<<<< HEAD
 import { uuid } from 'uuidv4';
+=======
+>>>>>>> Further refactor to improve code quality and start styling the map component with bootstrap.
 
 
 function rescale(number) {
