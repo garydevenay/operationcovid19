@@ -1,28 +1,33 @@
 import React, { useContext, useState } from 'react';
-import { QuestionnaireContext } from '../QuestionnaireContext';
+import { store, NEXT_STEP, SAVE_LOCATION } from '../QuestionnaireContext';
 import { LocationAutocomplete, NextButton } from '../Components';
 
 export const Location = (props) => {
-    const step = useContext(QuestionnaireContext)
-    const [location, setLocation] = useState(null);
-
-    //if (step < props.step) return null;
+    const {state, dispatch} = useContext(store)
 
     const _nextButton = () => {
-        if (step == props.step && location !== null) {
+        if (state.step === props.step && state.submission.location !== null) {
             return (
-                <NextButton onNext={() => props.onNext()} />
+                <NextButton onNext={() => {
+                    dispatch({type: NEXT_STEP});
+                    props.onNext();
+                }
+            } />
             )
         }
 
         return null;
     }
 
+    const setLocation = (value) => {
+        dispatch({type: SAVE_LOCATION, location: value})
+    }
+
     return (
         <div class="card mb-3">
             <div class="card-body">
                 <h3>Where are you located?</h3>
-                <LocationAutocomplete value={location} setValue={setLocation} />
+                <LocationAutocomplete value={state.location} setValue={setLocation} />
             </div>
             {_nextButton()}
         </div>
