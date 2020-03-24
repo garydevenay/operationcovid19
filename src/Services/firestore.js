@@ -17,11 +17,12 @@ export const authenticateAnonymously = () => {
   return firebase.auth().signInAnonymously();
 };
 
-export const createQuestionnaire = (submission) => {
-  authenticateAnonymously();
+export const createQuestionnaire = async (submission) => {
+  let userCredential = await authenticateAnonymously();
   return db.collection('submissions')
   .add({
     created: firebase.firestore.FieldValue.serverTimestamp(),
+    userId: userCredential.user.displayName,
     submission: submission
   })
 }
