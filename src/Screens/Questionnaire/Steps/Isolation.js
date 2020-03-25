@@ -1,31 +1,24 @@
 import React, { useState, useContext } from 'react';
 import { Boolean, NextButton } from '../Components'
-import { store, NEXT_STEP, SAVE_ISOLATION } from '../QuestionnaireContext';
+import { QuestionnaireContext } from '../QuestionnaireContext';
 
 export const Isolation = (props) => {
-    const { state, dispatch } = useContext(store)
+    const step = useContext(QuestionnaireContext);
+    const [ isIsolated, setIsIsolated ] = useState(null);
 
     const _nextButton = () => {
-        if (state.step === props.step && state.submission.isSelfIsolating !== null) {
+        if (step == props.step && isIsolated !== null) {
             return (
-                <NextButton onNext={() => {
-                        dispatch({type: NEXT_STEP});
-                        props.onNext();
-                    }
-                } />
+                <NextButton onNext={() => props.onNext()} />
             )
         }
-    }
-
-    const setIsIsolated = (value) => {
-        dispatch({type: SAVE_ISOLATION, isSelfIsolating: value });
     }
 
     return (
         <div class="card mb-3">
             <div class="card-body">
                 <h3>Are you currently self isolating?</h3>
-                <Boolean value={state.submission.isIsolated} setValue={setIsIsolated} />
+                <Boolean value={isIsolated} setValue={setIsIsolated} />
             </div>
             {_nextButton()}
         </div>
