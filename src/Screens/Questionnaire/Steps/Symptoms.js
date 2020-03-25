@@ -1,15 +1,24 @@
 import React, { useContext, useState } from 'react';
-import { QuestionnaireContext } from '../QuestionnaireContext';
+import { store, NEXT_STEP, SAVE_SYMPTOMS } from '../QuestionnaireContext';
 import { NextButton } from '../Components';
 
 export const Symptoms = (props) => {
-    const step = useContext(QuestionnaireContext);
-    const [ symptoms, setSymptoms ] = useState([]);
-
+    const { state, dispatch } = useContext(store);
+    
     const _nextButton = () => {
-        if (step == props.step && symptoms !== null) {
-            return <NextButton onNext={() => props.onNext()} />
+        if (state.step === props.step && state.submission.symptoms !== null) {
+            return (
+                <NextButton onNext={() => {
+                    dispatch({type: NEXT_STEP});
+                    props.onNext();
+                }
+            } />
+                )
         }
+    }
+
+    const setSymptoms = (value) => {
+        dispatch({type: SAVE_SYMPTOMS, symptoms: value})
     }
 
     return (
