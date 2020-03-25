@@ -1,13 +1,13 @@
 import React from "react";
 import { compose, withProps } from "recompose";
 import {
-  withScriptjs,
   withGoogleMap,
   GoogleMap,
   Circle
 } from "react-google-maps";
 import { api_url } from "./constants";
 import { circle_style, map_style } from "./style";
+import { uuid } from 'uuidv4';
 
 
 function rescale(number) {
@@ -23,7 +23,6 @@ export const GoogleMapComponent = compose(
     containerElement: <div style={{ height: `400px` }} />,
     mapElement: <div style={{ height: `100%` }} />
   }),
-  withScriptjs,
   withGoogleMap
 )(props => (
   <GoogleMap
@@ -38,9 +37,10 @@ export const GoogleMapComponent = compose(
   >
     {props.locationReports.map(report => (
       <Circle
+        key={uuid()}
         center={{
-          lat: parseFloat(report.Latitude),
-          lng: parseFloat(report.Longitude)
+          lat: parseFloat(report.Lat),
+          lng: parseFloat(report.Long_)
         }}
         radius={ rescale(report.Confirmed) }
         options={ circle_style }

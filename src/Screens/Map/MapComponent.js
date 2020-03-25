@@ -33,7 +33,9 @@ class MapComponent extends React.PureComponent {
       return reader.read().then(result => {
         return decoder.decode(result.value);
       });
-    });
+    }).catch(err => {
+      console.log(err);
+    })
   }
 
   async getCsvData() {

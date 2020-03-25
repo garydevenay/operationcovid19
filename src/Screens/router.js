@@ -4,5 +4,5 @@ import { Map } from './Map';
 
 export const routes = {
     '/questionnaire': () => <Questionnaire />,
-    '/map': () => <Map />
+    '/': () => <Map />
 }
