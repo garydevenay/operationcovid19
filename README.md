@@ -11,3 +11,5 @@ Our aim is to track, mobilise and prevent the spread of Coronavirus-19 to save l
 
 Follow us and join the conversation on social:
 [Facebook](https://www.facebook.com/groups/1069877326719640/), [Instagram](https://www.instagram.com/operationcovid/), [Twitter](https://twitter.com/19Operation)
+
+Font Suite & Licensing Use: https://www.onlinewebfonts.com/download/53852db06b7fb4c3f3b5cf3f9f5fbd66
