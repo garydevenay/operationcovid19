@@ -5,10 +5,10 @@ import { NextButton } from './index'
 export const Step = (props) => {
     const step = useContext(QuestionnaireContext)
 
-    //if (step < props.step) return null;
+    if (step < props.step) return null;
 
     const _nextButton = () => {
-        if (props.showNext) {
+        if (props.showNext && step == props.step) {
             return (
                 <NextButton onNext={() => props.onNext(1)} />
             )

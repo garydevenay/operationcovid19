@@ -5,6 +5,7 @@ import { CheckboxList } from './checkbox-list';
 import { DatePicker } from './datepicker';
 import { Step } from './step';
 import { Range } from './range';
+import { TextInput } from './text-input';
 
 export {
     Boolean,
@@ -13,5 +14,6 @@ export {
     CheckboxList,
     DatePicker,
     Step,
-    Range
+    Range,
+    TextInput
 }

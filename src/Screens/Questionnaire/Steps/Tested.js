@@ -15,8 +15,8 @@ export const Tested = (props) => {
             <>
                 <LocationAutocomplete placeholder="City/Town of test" value={testLocation} setValue={setTestLocation} question="Where did you get tested?" />
                 <Boolean value={cleared} setValue={setCleared} question="Have you since been cleared of COVID-19?" />
-                <Boolean value={reinfected} setValue={setReinfected} question="Do you believe you may have been re-infected since cleared?" />
                 {_isCleared()}
+                <Boolean value={reinfected} setValue={setReinfected} question="Do you believe you may have been re-infected since cleared?" />
             </>
         )
     }

@@ -11,6 +11,7 @@ import { Recovered } from './Recovered';
 import { HouseMates } from './HouseMates';
 import { Feeling } from './Feeling';
 import { Anxiety } from './Anxiety';
+import { Additional } from './Additional';
 
 export {
     Location,
@@ -25,5 +26,6 @@ export {
     Recovered,
     HouseMates,
     Feeling,
-    Anxiety
+    Anxiety,
+    Additional
 }

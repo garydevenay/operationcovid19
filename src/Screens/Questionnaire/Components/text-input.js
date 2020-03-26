@@ -10,8 +10,8 @@ export const TextInput = (props) => {
 
     return (
         <>
-            <h3>{props.question}</h3>
-            <input type={props.type || "text"} value={text} onChange={(v) => setValue(v)} />
+            <label>{props.label}</label>
+            <input type={props.type || "text"} value={text} onChange={(v) => setValue(v)} className="form-control" />
         </>
     )
 }

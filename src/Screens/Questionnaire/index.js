@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { QuestionnaireContext } from './QuestionnaireContext';
-import { Location, Contact, Tested, Isolation, Symptoms, Vulnerable, When, InitialIllness, HowLong, Recovered, HouseMates, Feeling, Anxiety } from './Steps';
+import { Location, Contact, Tested, Isolation, Symptoms, Vulnerable, When, InitialIllness, HowLong, Recovered, HouseMates, Feeling, Anxiety, Additional } from './Steps';
 
 export const Questionnaire = () => {
     const [ step, setStep ] = useState(0);
@@ -33,7 +33,8 @@ export const Questionnaire = () => {
                 <Symptoms onNext={(n) => advance(n)} step={10} />
                 <Feeling onNext={(n) => advance(n)} step={11} />
                 <Anxiety onNext={(n) => advance(n)} step={12} />
-                <Vulnerable onNext={(n) => advance(n)} step={11} />
+                <Vulnerable onNext={(n) => advance(n)} step={13} />
+                <Additional onNext={(n) => advance(n)} step={14} />
             </div>
         </QuestionnaireContext.Provider>
     )
