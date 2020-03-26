@@ -9,8 +9,11 @@ export const DatePicker = (props) => {
     }
 
     return (
-        <div className="input-group date" data-provide="datepicker">
-            <input type="date" className="form-control" value={date} onChange={(text) => setValue(text)} />
-        </div>
+        <>
+            <h3>{props.question}</h3>
+            <div className="input-group date" data-provide="datepicker">
+                <input type="date" className="form-control" value={date} onChange={(text) => setValue(text)} />
+            </div>
+        </>
     )
 }

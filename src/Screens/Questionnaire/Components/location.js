@@ -5,6 +5,8 @@ export const LocationAutocomplete = (props) => {
     //TODO: write state logic for selecting a place.
 
     return (
+        <>
+        <h3>{props.question}</h3>
         <div className="input-group-lg mt-3 mb-3">
             <GooglePlacesAutocomplete 
                 inputClassName="form-control" 
@@ -12,5 +14,6 @@ export const LocationAutocomplete = (props) => {
                 onSelect={(e) => props.setValue(e)}
             />
         </div>
+        </>
     )
 }

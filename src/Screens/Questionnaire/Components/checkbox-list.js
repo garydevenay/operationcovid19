@@ -29,7 +29,9 @@ export const CheckboxList = (props) => {
     }, [selected.join(',')])
 
     return (
-        boxes.map(x => {
+        <>
+        <h3>{props.question}</h3>
+        {boxes.map(x => {
             return (
                 <div className="form-check mb-2" key={x.value}>
                     <input className="form-check-input" type="checkbox" value={x.value} id={x.value} onClick={(e) => _onClick(e)} />
@@ -38,6 +40,7 @@ export const CheckboxList = (props) => {
                     </label>
                 </div>
             )
-        })
+        })}
+        </>
     )
 }
