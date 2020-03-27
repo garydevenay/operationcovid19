@@ -6,6 +6,7 @@ export const Boolean = (props) => {
     const setValue = (v) => {
         setBoolean(v);
         props.setValue(v);
+        console.log(v);
     }
 
     return (

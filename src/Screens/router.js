@@ -1,6 +1,7 @@
 import React from 'react';
 import { Questionnaire } from './Questionnaire';
+import { StateProvider } from './Questionnaire/store';
 
 export const routes = {
-    '/questionnaire': () => <Questionnaire />
+    '/questionnaire': () => <StateProvider><Questionnaire /></StateProvider>
 }

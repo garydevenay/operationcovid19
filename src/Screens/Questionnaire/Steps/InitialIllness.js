@@ -1,8 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Step, DatePicker } from '../Components';
+import { store } from '../store';
 
 export const InitialIllness = (props) => {
     const [illnessDate, setIllnessDate] = useState(null);
+    const { dispatch } = useContext(store);
+
+    useEffect(() => {
+        dispatch({ type: 'ILLNESS_START', payload: illnessDate });
+    }, [illnessDate]);
 
     return (
         <Step showNext={illnessDate !== null} onNext={(n) => props.onNext(n)} step={props.step}>

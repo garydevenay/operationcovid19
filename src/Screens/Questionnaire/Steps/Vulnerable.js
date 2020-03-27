@@ -1,10 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Step, Boolean } from '../Components';
+import { store } from '../store';
 
 export const Vulnerable = (props) => {
+    const { dispatch } = useContext(store);
     const [ isOver65, setIsOver65 ] = useState(null);
     const [ hasPreExisting, setHasPreExisting ] = useState(null);
     const [ medicalCondition, setMedicalCondition ] = useState(null);
+
+    useEffect(() => {
+        dispatch({ type: 'OVER_65', payload: isOver65 });
+    }, [isOver65])
+
+    useEffect(() => {
+        dispatch({ type: 'PREEXISTING', payload: hasPreExisting });
+    }, [hasPreExisting]);
+
+    useEffect(() => {
+        dispatch({ type: 'MEDICAL_CONDITION', payload: medicalCondition });
+    }, [medicalCondition]);
 
     const _hadPreExistingCondition = () => {
         if (!hasPreExisting) return null;

@@ -1,14 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { QuestionnaireContext } from './QuestionnaireContext';
 import { Location, Contact, Tested, Isolation, Symptoms, Vulnerable, When, InitialIllness, HowLong, Recovered, HouseMates, Feeling, Anxiety, Additional } from './Steps';
+import { store } from './store';
 
 export const Questionnaire = () => {
+    const globalState = useContext(store);
     const [ step, setStep ] = useState(0);
     const advance = (n) => setStep(step + n);
 
     useEffect(() => {
         window.scrollTo(0, document.body.scrollHeight);
-    }, [step])
+        console.log(globalState);
+    }, [step]);
 
     return (
         <QuestionnaireContext.Provider value={step}>

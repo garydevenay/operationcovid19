@@ -1,8 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Step, Range } from '../Components';
+import { store } from '../store';
 
 export const Anxiety = (props) => {
     const [anxietyLevel, setAnxietyLevel ] = useState(0);
+    const { dispatch } = useContext(store);
+
+    useEffect(() => {
+        dispatch({ type: 'ANXIETY_LEVEL', payload: anxietyLevel });
+    }, [ anxietyLevel ]);
 
     return (
         <Step showNext={true} onNext={(n) => props.onNext(n)} step={props.step}>

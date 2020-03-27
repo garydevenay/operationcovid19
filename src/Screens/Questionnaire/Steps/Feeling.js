@@ -1,8 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Step, Range } from '../Components';
+import { store } from '../store';
 
 export const Feeling = (props) => {
     const [feelingRange, setFeelingRange] = useState(0);
+    const { dispatch } = useContext(store);
+
+    useEffect(() => {
+        dispatch({ type: 'FEELING_CHANGE', payload: feelingRange });
+    }, [feelingRange]);
 
     return (
         <Step showNext={true} onNext={(n) => props.onNext(n)} step={props.step}>
