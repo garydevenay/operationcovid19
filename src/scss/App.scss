@@ -1,0 +1,137 @@
+@import "bootstrap/bootstrap.scss";
+@font-face {font-family: "Corpid"; src: url("//db.onlinewebfonts.com/t/53852db06b7fb4c3f3b5cf3f9f5fbd66.eot"); src: url("//db.onlinewebfonts.com/t/53852db06b7fb4c3f3b5cf3f9f5fbd66.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/53852db06b7fb4c3f3b5cf3f9f5fbd66.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/53852db06b7fb4c3f3b5cf3f9f5fbd66.woff") format("woff"), url("//db.onlinewebfonts.com/t/53852db06b7fb4c3f3b5cf3f9f5fbd66.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/53852db06b7fb4c3f3b5cf3f9f5fbd66.svg#Corpid") format("svg"); }
+
+$primary: #0B8AD9;
+$secondary: #FF4D84;
+$tertiary: #0ED8D8;
+
+$light-blue: #07C7F2;
+$dark-blue: #144673;
+$white: #FFFFFF;
+$black: #000000;
+
+$light-label: #999999;
+$light-grey: #f2f2f2;
+
+$theme-colors: (
+    primary:    $primary,
+    secondary:  $secondary,
+    success:    $success,
+    info:       $info,
+    warning:    $warning,
+    danger:     $danger,
+    light:      $light,
+    dark:       $dark
+);
+
+body {
+	font-family: 'Corpid';
+	background: $dark-blue url('/images/body-background.png') repeat-x;
+	padding: 45px;
+}
+
+h2 {
+	color: $primary;
+	margin-bottom: 25px;
+}
+
+.container {
+	border-radius: 18px;
+	padding: 0;
+	-webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);
+	box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);
+}
+
+.navbar {
+	position: absolute;
+	z-index: 1000;
+}
+
+.logo {
+	width: 90px;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+.page-body {
+	background-color: $white;
+	border-radius: 18px;
+}
+
+.statistics {
+	display: flex;
+	border-bottom: 1px solid $light-grey;
+	border-right: 1px solid $light-grey;
+	padding: 20px 0;
+}
+
+.stat-left {
+	float: left;
+	width: 20%;
+	flex-grow: 1;
+	text-align: center;
+	.badge {
+		display: inline-block;
+		width: 18px;
+		height: 18px;
+		border-radius: 9px;
+		margin-top: 4px;
+		&.red { background: $secondary }
+		&.green { background: $tertiary }
+		&.blue { background: $light-blue }
+		&.black { background: $black }
+	}
+}
+
+.stat-right {
+	float: left;
+	width: 80%;
+	clear: both;
+	.statistic-title {
+		color: $light-label;
+		font-size: 12px;
+	}
+	.statistic {
+		font-size: 30px;
+	}
+}
+
+.padded-body {
+	padding: 40px;
+}
+
+.questionnaire-box {
+	display: flex;
+	border-bottom: 1px solid $light-grey;
+	a {
+		color: $black;
+		flex-grow: 1;
+		padding: 27px 0 26px 20px;
+		.icon {
+			float: left;
+			max-width: 64px;
+			width: 20%;
+		}
+		.text {
+			margin-left: 15px;
+			float: left;
+			width: 50%;
+			.title {
+				font-size: 20px;
+				color: $tertiary;
+			}
+			.sub-title {
+				font-size: 12px;
+				color: $light-label;
+				width: 100%;
+			}
+		}
+		.button {
+			margin: 15px;
+			float: left;
+			max-width: 32px;
+			width: 10%;
+		}
+	}
+}

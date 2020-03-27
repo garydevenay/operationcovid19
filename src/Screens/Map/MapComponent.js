@@ -1,6 +1,5 @@
 import React from "react";
 import Papa from "papaparse";
-
 import { default_location } from "./constants";
 import { data_source } from "./data";
 import { GoogleMapComponent } from "./GoogleMapComponent"
@@ -64,13 +63,13 @@ class MapComponent extends React.PureComponent {
 
   render() {
     return (
-      <div className="container" id="map-view">
-        <StatsComponent locationReports={this.state.locationReports} />
+      <>
         <GoogleMapComponent
           mapCenter={this.state.centerPos}
           locationReports={this.state.locationReports}
         />
-      </div>
+        <StatsComponent data={this.props.data} />
+      </>
     );
   }
 };
