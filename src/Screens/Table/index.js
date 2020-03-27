@@ -2,6 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { GetSummary } from '../../API';
 
 export const Table = (props) => {
+    const reports = props.selfReports;
+
+    const countReportsForCountry = (country) => {
+        if (reports !== null && reports.length > 0) {
+            let test = reports.filter(x => x.currentLocation.place.long_name == country);
+            return test.length;
+        }
+
+        return 0;
+    }
+
     const writeRows = () => {
         if (props.data.length == 0) return null;
 
@@ -10,9 +21,9 @@ export const Table = (props) => {
             <tr>
                 <td>{x.Country}</td>
                 <td>{x.TotalConfirmed}</td>
-                <td></td>
-                <td className="d-none d-md-block">{x.TotalRecovered}</td>
-                <td className="d-none d-md-block">{x.TotalDeaths}</td>
+                <td>{countReportsForCountry(x.Country)}</td>
+                <td>{x.TotalRecovered}</td>
+                <td>{x.TotalDeaths}</td>
             </tr>
         ))
     }
@@ -31,20 +42,22 @@ export const Table = (props) => {
         <div className="padded-body col-12">
             <h2>Worldwide Statistics</h2>
 
-            <table className="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Total Confirmed</th>
-                        <th>Self-Reported</th>
-                        <th className="d-none d-md-block">Total Recovered</th>
-                        <th className="d-none d-md-block">Total Deceased</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {writeRows()}
-                </tbody>
-            </table>
+            <div class="table-responsive">
+                <table className="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Total Confirmed</th>
+                            <th>Self-Reported</th>
+                            <th>Total Recovered</th>
+                            <th>Total Deceased</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {writeRows()}
+                    </tbody>
+                </table>
+            </div>
         </div>
     )
 }

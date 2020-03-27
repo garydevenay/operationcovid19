@@ -3,19 +3,61 @@ import { uuid } from 'uuidv4';
 import  axios from 'axios';
 
 const firebaseConfig = {
-    apiKey: process.env.apiKey,
-    authDomain: process.env.authDomain,
-    databaseURL: process.env.databaseURL,
-    projectId: process.env.projectId,
-    storageBucket: process.env.storageBucket,
-    messagingSenderId: process.env.messagingSenderId,
-    appId: process.env.appId,
-    measurementId: process.env.measurementId
+    apiKey: process.env.REACT_APP_apiKey,
+    authDomain: process.env.REACT_APP_authDomain,
+    databaseURL: process.env.REACT_APP_databaseURL,
+    projectId: process.env.REACT_APP_projectId,
+    storageBucket: process.env.REACT_APP_storageBucket,
+    messagingSenderId: process.env.REACT_APP_messagingSenderId,
+    appId: process.env.REACT_APP_appId,
+    measurementId: process.env.REACT_APP_measurementId
 };
+firebase.initializeApp(firebaseConfig);
+firebase.auth().signInAnonymously();
+
+const submissions = firebase.database().ref('submissions/');
+// submissions.on('value', function(snapshot) {
+//     firebase.database().ref('submissionCount/').once('value').then((snapshot) => {
+//     })
+// });
 
 export function Save(obj) {
-    firebase.initializeApp(firebaseConfig)
-    firebase.database().ref(`submissions/${uuid()}`).set(obj);
+    let item = {
+        ...obj,
+        created: new Date()
+    }
+
+    firebase.database().ref(`submissions/${uuid()}`).set(item);
+}
+
+export async function GetCount() {
+    let snapshot = await submissions.once('value');
+    return snapshot.numChildren();
+}
+
+export function LiveCount(cb) {
+    submissions.on('value', function(s) {
+        cb(s.numChildren());
+    });
+}
+
+export async function GetSelfReports() {
+    let array = [];
+    let snapshot = await submissions.once('value');
+    let value = snapshot.val();
+    let keys = Object.keys(value);
+
+    for(let i = 0; i < keys.length; i++) {
+        let tmp = value[keys[i]];
+
+        let val = {
+            ...tmp,
+            id: keys[i]
+        }
+        array[i] = val
+    }
+
+    return array;
 }
 
 export async function GetCasesByCountry(country) {

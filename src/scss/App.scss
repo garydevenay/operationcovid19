@@ -30,6 +30,8 @@ body {
 	padding: 45px;
 }
 
+h2, h3, h4 { color: $primary }
+
 h2 {
 	color: $primary;
 	margin-bottom: 25px;
@@ -46,6 +48,17 @@ h2 {
 .navbar {
 	position: absolute;
 	z-index: 1000;
+}
+
+.btn {
+	border-radius: 14px;
+	&.btn-primary {
+		background-color: $primary;
+		&:not(:disabled):not(.disabled).active {
+			background-color: $secondary;
+			border-color: $secondary;
+		}
+	}
 }
 
 .logo {
@@ -158,6 +171,35 @@ h2 {
 	border-top-left-radius: 18px;
 	border-top-right-radius: 18px;
 	background: $dark-blue
+}
+
+.jumbotron {
+	background: $dark-blue url('/images/header-overlay.png');
+	border-radius: 18px;
+	color: $white;
+	padding-top: 150px;
+}
+
+.card {
+	border-radius: 18px;
+}
+
+.google-places-autocomplete__suggestions-container {
+    position: absolute;
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    z-index: 10;
+    width: 90%;
+}
+
+.google-places-autocomplete__suggestion {
+    padding: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.google-places-autocomplete__suggestion:hover {
+    background-color: rgba(0, 0, 0, 0.09);
+    cursor: pointer;
 }
 
 @include media-breakpoint-down(md) {

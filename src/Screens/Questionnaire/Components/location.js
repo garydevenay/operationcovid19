@@ -1,8 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
+import { geocodeByPlaceId } from 'react-google-places-autocomplete';
 
 export const LocationAutocomplete = (props) => {
-    //TODO: write state logic for selecting a place.
+    const [address, setAddress] = useState('');
+
+    useEffect(() => {
+        geocodeByPlaceId(address.place_id).then(function(res) {
+            let data = res[0]
+            console.log(data);
+            let result = {
+                place: data.address_components[data.address_components.length - 1],
+                geometry: {
+                    lat: data.geometry.location.lat(),
+                    lng: data.geometry.location.lng()
+                },
+                address: data.formatted_address,
+                place_id: data.place_id
+            }
+
+            props.setValue(result);
+        });
+    }, [address]);
 
     return (
         <>
@@ -12,7 +31,7 @@ export const LocationAutocomplete = (props) => {
             <GooglePlacesAutocomplete 
                 inputClassName="form-control" 
                 placeholder={props.placeholder || "Your current location"}
-                onSelect={(e) => props.setValue(e)}
+                onSelect={(e) => setAddress(e)}
             />
         </div>
         </>

@@ -1,13 +1,26 @@
 import React, { useState, useEffect, useReducer } from "react";
+import { GetCount, LiveCount } from '../../API';
 
 export const StatsComponent = (props) => {
 	const [confirmed, setConfirmed] = useState(0);
 	const [selfReported, setSelfReported] = useState(0);
 	const [recovered, setRecovered] = useState(0);
 	const [deceased, setDeceased] = useState(0);
+	const [ready, setReady] = useState(false);
 	const sum = (key) => {
 		return props.data.reduce((a, b) => a + (b[key] || 0), 0);
 	}
+
+	const getSelfCount = async() => {
+		LiveCount((val) => {
+			setSelfReported(val);
+			setReady(true);
+		});
+	}
+
+	useEffect(() => {
+		getSelfCount();
+	}, []);
 
 	useEffect(() => {
 		if (props.data !== undefined) {
@@ -27,7 +40,7 @@ export const StatsComponent = (props) => {
 						</div>
 						<div className="text">
 							<span className="title">Tap here to Self-Report</span><br />
-							<span className="sub-title">It's safe and anonymous</span>
+							<span className="sub-title">It's safe and confidential</span>
 						</div>
 					</a>
 				</div>
@@ -85,7 +98,7 @@ export const StatsComponent = (props) => {
 						</div>
 						<div className="text">
 							<span className="title">Self-Report</span><br />
-							<span className="sub-title">It's safe and anonymous</span>
+							<span className="sub-title">It's safe and confidential</span>
 						</div>
 						<div className="button">
 							<img src="/images/self-report-cta.svg" />

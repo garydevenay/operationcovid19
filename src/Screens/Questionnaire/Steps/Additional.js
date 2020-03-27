@@ -74,6 +74,7 @@ export const Additional = (props) => {
 
     const saveReport = () => {
         Save(globalState.state);
+        window.location.href = '/thank-you';
     }
 
     return (
