@@ -15,3 +15,14 @@
     background-color: rgba(0, 0, 0, 0.09);
     cursor: pointer;
 }
+
+/* Below are for Map View */
+#map-view .stats-card {
+	background: #0e1626;
+	border-radius: 0px;
+	cursor: pointer;
+}
+
+#map-view .stats-card-selected {
+	background: #023146;
+}

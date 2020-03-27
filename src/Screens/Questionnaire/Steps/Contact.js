@@ -1,41 +1,30 @@
-import React, { useContext, useState, useEffect } from 'react';
-import { QuestionnaireContext } from '../QuestionnaireContext';
-import { Boolean, NextButton } from '../Components';
+import React, { useState, useContext, useEffect } from 'react';
+import { Step, Boolean, DatePicker } from '../Components';
+import { store } from '../store';
 
 export const Contact = (props) => {
-    const step = useContext(QuestionnaireContext)
     const [inContact, setInContact] = useState(null);
     const [inContactDate, setInContactDate] = useState(null); 
+    const { dispatch } = useContext(store);
 
-    //if (step < props.step) return null;
+    useEffect(() => {
+        dispatch({ type: 'CONFIRMED_CONTACT', payload: inContact });
+    }, [inContact])
 
-    const _nextButton = () => {
-        if (step == props.step && inContact !== null) {
-            return (
-                <NextButton onNext={() => props.onNext()} />
-            )
-        }
-    }
+    useEffect(() => {
+        dispatch({ type: 'CONFIRMED_CONTACT_DATE', payload: inContactDate });
+    }, [inContactDate])
 
     const _when = () => {
         if (inContact !== true) return null;
 
-        return (
-            <>
-                <h4>When did you come in to contact?</h4>
-                // Date
-            </>
-        )
+        return <DatePicker value={inContactDate} setValue={setInContactDate} question="When did you come in to contact?" />
     }
 
     return (
-        <div class="card mb-3">
-            <div class="card-body">
-                <h3>Have you been in contact with someone who tested positive for COVID-19 in the last 30 days?</h3>
-                <Boolean value={inContact} setValue={setInContact} />
-                {_when()}
-            </div>
-            {_nextButton()}
-        </div>
+        <Step showNext={inContact == false || (inContact && inContactDate)} onNext={(n) => props.onNext(n)} step={props.step}>
+            <Boolean value={inContact} setValue={setInContact} question="Have you been in contact with someone who tested positive for COVID-19 in the last 30 days?" />
+            {_when()}
+        </Step>
     )
 }
