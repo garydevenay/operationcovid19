@@ -130,3 +130,32 @@ p {
 		font-size: 76pt;
 	}
 }
+
+.google-places-autocomplete__suggestions-container {
+    position: absolute;
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    z-index: 10;
+    width: 90%;
+}
+
+.google-places-autocomplete__suggestion {
+    padding: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.google-places-autocomplete__suggestion:hover {
+    background-color: rgba(0, 0, 0, 0.09);
+    cursor: pointer;
+}
+
+/* Below are for Map View */
+#map-view .stats-card {
+	background: #0e1626;
+	border-radius: 0px;
+	cursor: pointer;
+}
+
+#map-view .stats-card-selected {
+	background: #023146;
+}

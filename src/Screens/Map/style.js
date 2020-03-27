@@ -1,8 +1,20 @@
 // This currently defiines a dark blue style of the map.
 const circle_style = { 
   strokeWeight: 0, 
-  fillColor: "#FF0000", 
+  fillColor: "#FF4D84", 
   fillOpacity: 0.3 
+}
+
+const death_style = {
+  strokeWeight: 0, 
+  fillColor: "#000000", 
+  fillOpacity: 1
+}
+
+const recovered_style = {
+  strokeWeight: 0, 
+  fillColor: "#07C7F2", 
+  fillOpacity: 0.7
 }
 
 const map_style = [
@@ -10,7 +22,7 @@ const map_style = [
     elementType: "geometry",
     stylers: [
       {
-        color: "#1d2c4d"
+        color: "#145C8F"
       }
     ]
   },
@@ -18,7 +30,7 @@ const map_style = [
     elementType: "labels.text.fill",
     stylers: [
       {
-        color: "#8ec3b9"
+        color: "#145C8F"
       }
     ]
   },
@@ -26,7 +38,7 @@ const map_style = [
     elementType: "labels.text.stroke",
     stylers: [
       {
-        color: "#1a3646"
+        color: "#145C8F"
       }
     ]
   },
@@ -35,7 +47,7 @@ const map_style = [
     elementType: "geometry.stroke",
     stylers: [
       {
-        color: "#4b6878"
+        color: "#145C8F"
       }
     ]
   },
@@ -44,7 +56,7 @@ const map_style = [
     elementType: "labels.text.fill",
     stylers: [
       {
-        color: "#64779e"
+        color: "#145C8F"
       }
     ]
   },
@@ -53,7 +65,7 @@ const map_style = [
     elementType: "geometry.stroke",
     stylers: [
       {
-        color: "#4b6878"
+        color: "#145C8F"
       }
     ]
   },
@@ -62,7 +74,7 @@ const map_style = [
     elementType: "geometry.stroke",
     stylers: [
       {
-        color: "#334e87"
+        color: "#145C8F"
       }
     ]
   },
@@ -71,7 +83,7 @@ const map_style = [
     elementType: "geometry",
     stylers: [
       {
-        color: "#023e58"
+        color: "#145C8F"
       }
     ]
   },
@@ -80,7 +92,7 @@ const map_style = [
     elementType: "geometry",
     stylers: [
       {
-        color: "#283d6a"
+        color: "#145C8F"
       }
     ]
   },
@@ -89,7 +101,7 @@ const map_style = [
     elementType: "labels.text.fill",
     stylers: [
       {
-        color: "#6f9ba5"
+        color: "#145C8F"
       }
     ]
   },
@@ -98,7 +110,7 @@ const map_style = [
     elementType: "labels.text.stroke",
     stylers: [
       {
-        color: "#1d2c4d"
+        color: "#145C8F"
       }
     ]
   },
@@ -115,7 +127,7 @@ const map_style = [
     elementType: "geometry.fill",
     stylers: [
       {
-        color: "#023e58"
+        color: "#145C8F"
       }
     ]
   },
@@ -133,7 +145,7 @@ const map_style = [
     elementType: "labels.text.fill",
     stylers: [
       {
-        color: "#3C7680"
+        color: "#145C8F"
       }
     ]
   },
@@ -150,7 +162,7 @@ const map_style = [
     elementType: "geometry",
     stylers: [
       {
-        color: "#304a7d"
+        color: "#145C8F"
       }
     ]
   },
@@ -159,7 +171,7 @@ const map_style = [
     elementType: "labels.text.fill",
     stylers: [
       {
-        color: "#98a5be"
+        color: "#145C8F"
       }
     ]
   },
@@ -168,7 +180,7 @@ const map_style = [
     elementType: "labels.text.stroke",
     stylers: [
       {
-        color: "#1d2c4d"
+        color: "#145C8F"
       }
     ]
   },
@@ -177,7 +189,7 @@ const map_style = [
     elementType: "geometry",
     stylers: [
       {
-        color: "#2c6675"
+        color: "#145C8F"
       }
     ]
   },
@@ -186,7 +198,7 @@ const map_style = [
     elementType: "geometry.stroke",
     stylers: [
       {
-        color: "#255763"
+        color: "#145C8F"
       }
     ]
   },
@@ -195,7 +207,7 @@ const map_style = [
     elementType: "labels.text.fill",
     stylers: [
       {
-        color: "#b0d5ce"
+        color: "#145C8F"
       }
     ]
   },
@@ -204,7 +216,7 @@ const map_style = [
     elementType: "labels.text.stroke",
     stylers: [
       {
-        color: "#023e58"
+        color: "#145C8F"
       }
     ]
   },
@@ -213,7 +225,7 @@ const map_style = [
     elementType: "labels.text.fill",
     stylers: [
       {
-        color: "#98a5be"
+        color: "#145C8F"
       }
     ]
   },
@@ -222,7 +234,7 @@ const map_style = [
     elementType: "labels.text.stroke",
     stylers: [
       {
-        color: "#1d2c4d"
+        color: "#145C8F"
       }
     ]
   },
@@ -231,7 +243,7 @@ const map_style = [
     elementType: "geometry.fill",
     stylers: [
       {
-        color: "#283d6a"
+        color: "#145C8F"
       }
     ]
   },
@@ -240,7 +252,7 @@ const map_style = [
     elementType: "geometry",
     stylers: [
       {
-        color: "#3a4762"
+        color: "#145C8F"
       }
     ]
   },
@@ -249,7 +261,7 @@ const map_style = [
     elementType: "geometry",
     stylers: [
       {
-        color: "#0e1626"
+        color: "#144673"
       }
     ]
   },
@@ -258,10 +270,10 @@ const map_style = [
     elementType: "labels.text.fill",
     stylers: [
       {
-        color: "#4e6d70"
+        color: "#144673"
       }
     ]
   }
 ];
 
-export { circle_style, map_style };
+export { circle_style, map_style, death_style, recovered_style };

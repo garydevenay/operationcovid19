@@ -6,11 +6,12 @@ import {
   Circle
 } from "react-google-maps";
 import { api_url } from "./constants";
-import { circle_style, map_style } from "./style";
+import { circle_style, map_style, death_style, recovered_style } from "./style";
 import { uuid } from 'uuidv4';
 
 
 function rescale(number) {
+  return number * 10;
   let epsilon = 0.01;
   return Math.log(number + epsilon) * 20000;
 }
@@ -20,8 +21,8 @@ export const GoogleMapComponent = compose(
   withProps({
     googleMapURL: api_url,
     loadingElement: <div style={{ height: `100%` }} />,
-    containerElement: <div style={{ height: `400px` }} />,
-    mapElement: <div style={{ height: `100%` }} />
+    containerElement: <div className="map" style={{ height: `400px` }} />,
+    mapElement: <div className="map" style={{ height: `100%` }} />
   }),
   withGoogleMap
 )(props => (
@@ -36,6 +37,7 @@ export const GoogleMapComponent = compose(
     }}
   >
     {props.locationReports.map(report => (
+      <>
       <Circle
         key={uuid()}
         center={{
@@ -45,6 +47,25 @@ export const GoogleMapComponent = compose(
         radius={ rescale(report.Confirmed) }
         options={ circle_style }
       />
+      <Circle
+        key={uuid() + 'recovered'}
+        center={{
+          lat: parseFloat(report.Lat),
+          lng: parseFloat(report.Long_)
+        }}
+        radius={ rescale(report.Recovered) }
+        options={ recovered_style }
+      />
+      <Circle
+        key={uuid() + 'death'}
+        center={{
+          lat: parseFloat(report.Lat),
+          lng: parseFloat(report.Long_)
+        }}
+        radius={ rescale(report.Deaths) }
+        options={ death_style }
+      />
+      </>
     ))}
   </GoogleMap>
 ));

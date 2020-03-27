@@ -4,8 +4,10 @@
   "private": true,
   "dependencies": {
     "@firebase/app": "^0.6.0",
+    "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
     "bootstrap-datepicker": "^1.9.0",
+    "dotenv": "^8.2.0",
     "firebase": "^7.12.0",
     "firebase-admin": "^8.10.0",
     "hookrouter": "^1.2.3",
@@ -17,13 +19,17 @@
     "react-google-maps": "9.4.3",
     "react-google-places-autocomplete": "^1.6.2",
     "react-scripts": "3.4.0",
-    "uuidv4": "^6.0.6",
-    "recompose": "0.26.0"
+    "recompose": "0.26.0",
+    "uuidv4": "^6.0.6"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1"
+    "@testing-library/user-event": "^7.2.1",
+    "gulp": "^4.0.2",
+    "gulp-csso": "^4.0.1",
+    "gulp-sass": "^4.0.2",
+    "node-sass": "^4.13.1"
   },
   "scripts": {
     "start": "react-scripts start",

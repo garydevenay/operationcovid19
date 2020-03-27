@@ -1,44 +1,111 @@
-import React from "react";
+import React, { useState, useEffect, useReducer } from "react";
+import { GetCount, LiveCount } from '../../API';
 
-class StatsComponent extends React.PureComponent {
-	render() {
-		return (
-			<div class="row no-gutters">
-		    <div class="col stats">
-			    <div class="card text-white stats-card stats-card-selected">
-					  <div class="card-body text-center">
-					    <h5 class="card-title text-uppercase">Confirmed</h5>
-					    <h4 class="card-text">300000</h4>
-					  </div>
-					</div>
+export const StatsComponent = (props) => {
+	const [confirmed, setConfirmed] = useState(0);
+	const [selfReported, setSelfReported] = useState(0);
+	const [recovered, setRecovered] = useState(0);
+	const [deceased, setDeceased] = useState(0);
+	const [ready, setReady] = useState(false);
+	const sum = (key) => {
+		return props.data.reduce((a, b) => a + (b[key] || 0), 0);
+	}
+
+	const getSelfCount = async() => {
+		LiveCount((val) => {
+			setSelfReported(val);
+			setReady(true);
+		});
+	}
+
+	useEffect(() => {
+		getSelfCount();
+	}, []);
+
+	useEffect(() => {
+		if (props.data !== undefined) {
+			setConfirmed(sum("TotalConfirmed"))
+			setRecovered(sum("TotalRecovered"))
+			setDeceased(sum("TotalDeaths"))
+		}
+	}, [props.data]);
+
+	return (
+		<div className="row no-gutters">
+			<div className="col-12 d-lg-none">
+				<div className="questionnaire-box mobile">
+					<a href="/questionnaire">
+						<div className="icon">
+							<img src="/images/self-report-white.svg" alt="Self report your symptoms" />
+						</div>
+						<div className="text">
+							<span className="title">Tap here to Self-Report</span><br />
+							<span className="sub-title">It's safe and confidential</span>
+						</div>
+					</a>
 				</div>
-		    <div class="col">
-			    <div class="card text-white stats-card">
-					  <div class="card-body text-center">
-					    <h5 class="card-title text-uppercase">Death</h5>
-					    <h4 class="card-text">0</h4>
-					  </div>
+			</div>
+			<div className="col">
+				<div className="statistics">
+					<div className="stat-left">
+						<span className="badge red"></span>
 					</div>
-				</div>
-		    <div class="col">
-			    <div class="card text-white stats-card">
-					  <div class="card-body text-center">
-					    <h5 class="card-title text-uppercase">Recovered</h5>
-					    <h4 class="card-text">300000</h4>
-					  </div>
-					</div>
-				</div>
-		    <div class="col">
-		    	<div class="card text-white stats-card">
-					  <div class="card-body text-center">
-					    <h5 class="card-title text-uppercase">Self-reported</h5>
-					   <h4 class="card-text">N/A</h4>
-					  </div>
+					<div className="stat-right">
+						<span className="statistic-title">Total Confirmed Cases</span><br />
+						<span className="statistic">{confirmed.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</span>
 					</div>
 				</div>
 			</div>
-		)		
-	}
+			<div className="col">
+				<div className="statistics">
+					<div className="stat-left">
+						<span className="badge green"></span>
+					</div>
+					<div className="stat-right">
+						<span className="statistic-title">Total Self Reported</span><br />
+						<span className="statistic">{selfReported.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</span>
+					</div>
+				</div>
+			</div>
+			<div className="w-100 d-lg-none"></div>
+			<div className="col">
+				<div className="statistics">
+					<div className="stat-left">
+						<span className="badge blue"></span>
+					</div>
+					<div className="stat-right">
+						<span className="statistic-title">Total Recovered</span><br />
+						<span className="statistic">{recovered.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</span>
+					</div>
+				</div>
+			</div>
+			<div className="col">
+				<div className="statistics">
+					<div className="stat-left">
+						<span className="badge black"></span>
+					</div>
+					<div className="stat-right">
+						<span className="statistic-title">Total Deceased</span><br />
+						<span className="statistic">{deceased.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</span>
+					</div>
+				</div>
+			</div>
+			<div className="d-none d-lg-block col-3">
+				<div className="questionnaire-box">
+					<a href="/questionnaire">
+						<div className="icon">
+							<img src="/images/self-report.svg" alt="Self report your symptoms" />
+						</div>
+						<div className="text">
+							<span className="title">Self-Report</span><br />
+							<span className="sub-title">It's safe and confidential</span>
+						</div>
+						<div className="button">
+							<img src="/images/self-report-cta.svg" />
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	)
 };
-
-export { StatsComponent };
