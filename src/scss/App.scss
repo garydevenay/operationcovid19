@@ -134,4 +134,50 @@ h2 {
 			width: 10%;
 		}
 	}
+	&.mobile {
+		background-color: $tertiary;
+		color: $white;
+		a {
+			padding: 20px;
+			color: $white;
+			.text {
+				width: 75%;
+				margin-top: 7px;
+				.title {
+					color: $white;
+				}
+				.sub-title {
+					color: $black;
+				}
+			}
+		}
+	}
+}
+
+.map {
+	border-top-left-radius: 18px;
+	border-top-right-radius: 18px;
+	background: $dark-blue
+}
+
+@include media-breakpoint-down(md) {
+	body {
+		padding: 0;
+	}
+
+	.container {
+		border-radius: 0;
+	}
+
+	.padded-body {
+		padding: 40px 20px;
+	}
+
+	.page-body {
+		border-radius: 0;
+	}
+
+	.map {
+		border-radius: 0;
+	}
 }

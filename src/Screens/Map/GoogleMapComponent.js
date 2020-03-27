@@ -21,8 +21,8 @@ export const GoogleMapComponent = compose(
   withProps({
     googleMapURL: api_url,
     loadingElement: <div style={{ height: `100%` }} />,
-    containerElement: <div style={{ height: `400px`, borderTopLeftRadius: 18, borderTopRightRadius: 18, backgroundColor: '#144673' }} />,
-    mapElement: <div style={{ height: `100%`, borderTopLeftRadius: 18, borderTopRightRadius: 18 }} />
+    containerElement: <div className="map" style={{ height: `400px` }} />,
+    mapElement: <div className="map" style={{ height: `100%` }} />
   }),
   withGoogleMap
 )(props => (

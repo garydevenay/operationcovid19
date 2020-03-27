@@ -6,7 +6,7 @@ export const StatsComponent = (props) => {
 	const [recovered, setRecovered] = useState(0);
 	const [deceased, setDeceased] = useState(0);
 	const sum = (key) => {
-		return props.data.reduce((a, b) => a + (b[key]  || 0), 0);
+		return props.data.reduce((a, b) => a + (b[key] || 0), 0);
 	}
 
 	useEffect(() => {
@@ -19,6 +19,19 @@ export const StatsComponent = (props) => {
 
 	return (
 		<div className="row no-gutters">
+			<div className="col-12 d-lg-none">
+				<div className="questionnaire-box mobile">
+					<a href="/questionnaire">
+						<div className="icon">
+							<img src="/images/self-report-white.svg" alt="Self report your symptoms" />
+						</div>
+						<div className="text">
+							<span className="title">Tap here to Self-Report</span><br />
+							<span className="sub-title">It's safe and anonymous</span>
+						</div>
+					</a>
+				</div>
+			</div>
 			<div className="col">
 				<div className="statistics">
 					<div className="stat-left">
@@ -41,6 +54,7 @@ export const StatsComponent = (props) => {
 					</div>
 				</div>
 			</div>
+			<div className="w-100 d-lg-none"></div>
 			<div className="col">
 				<div className="statistics">
 					<div className="stat-left">
@@ -63,7 +77,7 @@ export const StatsComponent = (props) => {
 					</div>
 				</div>
 			</div>
-			<div className="col-3">
+			<div className="d-none d-lg-block col-3">
 				<div className="questionnaire-box">
 					<a href="/questionnaire">
 						<div className="icon">

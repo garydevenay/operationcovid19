@@ -11,8 +11,8 @@ export const Table = (props) => {
                 <td>{x.Country}</td>
                 <td>{x.TotalConfirmed}</td>
                 <td></td>
-                <td>{x.TotalRecovered}</td>
-                <td>{x.TotalDeaths}</td>
+                <td className="d-none d-md-block">{x.TotalRecovered}</td>
+                <td className="d-none d-md-block">{x.TotalDeaths}</td>
             </tr>
         ))
     }
@@ -37,8 +37,8 @@ export const Table = (props) => {
                         <th>Name</th>
                         <th>Total Confirmed</th>
                         <th>Self-Reported</th>
-                        <th>Total Recovered</th>
-                        <th>Total Deceased</th>
+                        <th className="d-none d-md-block">Total Recovered</th>
+                        <th className="d-none d-md-block">Total Deceased</th>
                     </tr>
                 </thead>
                 <tbody>
