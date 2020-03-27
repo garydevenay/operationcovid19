@@ -6,7 +6,7 @@ export const Vulnerable = (props) => {
     const { dispatch } = useContext(store);
     const [ isOver65, setIsOver65 ] = useState(null);
     const [ hasPreExisting, setHasPreExisting ] = useState(null);
-    const [ medicalCondition, setMedicalCondition ] = useState(null);
+    const [ medicalCondition, setMedicalCondition ] = useState('');
 
     useEffect(() => {
         dispatch({ type: 'OVER_65', payload: isOver65 });
@@ -25,8 +25,8 @@ export const Vulnerable = (props) => {
 
         return (
             <>
-                <h4>Enter medical condition <i>(optional)</i></h4>
-                <textarea className="form-control" placeholder="" value={medicalCondition} onChange={(v) => setMedicalCondition(v)} />
+                <h4>Enter medical condition</h4>
+                <textarea className="form-control" value={medicalCondition} onChange={(e) => setMedicalCondition(e.target.value)} />
             </>
         )
     }

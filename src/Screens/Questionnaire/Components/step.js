@@ -10,7 +10,7 @@ export const Step = (props) => {
     const _nextButton = () => {
         if (props.showNext && step == props.step) {
             return (
-                <NextButton onNext={() => props.onNext(1)} />
+                <NextButton onNext={() => props.onNext(1)}>{props.nextText}</NextButton>
             )
         }
     }

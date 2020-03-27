@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
-import { Step, LocationAutocomplete, Boolean, TextInput } from '../Components'
+import React, { useState, useContext, useEffect } from 'react';
+import { Step, LocationAutocomplete, Boolean, TextInput, CheckboxList } from '../Components';
+import { store } from '../store';
+import { Save } from '../../../API'
 
 export const Additional = (props) => {
+    const globalState = useContext(store);
+    const { dispatch } = globalState;
     const [firstName, setFirstName] = useState('');
     const [middleName, setMiddleName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -11,6 +15,47 @@ export const Additional = (props) => {
     const [travel, setTravel] = useState(null);
     const [followUp, setFollowUp] = useState(null);
     const [email, setEmail] = useState('');
+    const options = [
+        { title: 'Male', value: 'male' },
+        { title: 'Female', value: 'female' },
+        { title: 'Other', value: 'other' }
+    ]
+
+    useEffect(() => {
+        dispatch({ type: 'FIRST_NAME', payload: firstName })
+    }, [firstName]);
+
+    useEffect(() => {
+        dispatch({ type: 'MIDDLE_NAME', payload: middleName });
+    }, [middleName]);
+
+    useEffect(() => {
+        dispatch({ type: 'LAST_NAME', payload: lastName });
+    }, [lastName]);
+
+    useEffect(() => {
+        dispatch({ type: 'SEX', payload: sex });
+    }, [sex])
+
+    useEffect(() => {
+        dispatch({ type: 'AGE', payload: age });
+    }, [age]);
+
+    useEffect(() => {
+        dispatch({ type: 'CITY', payload: city });
+    }, [city]);
+
+    useEffect(() => {
+        dispatch({ type: 'TRAVEL', payload: travel });
+    }, [travel]);
+
+    useEffect(() => {
+        dispatch({ type: 'FOLLOW_UP', payload: followUp });
+    }, [followUp]);
+
+    useEffect(() => {
+        dispatch({ type: 'EMAIL', payload: email });
+    }, [email]);
 
     const showSave = () => {
         if (firstName.length > 0 &&
@@ -27,8 +72,12 @@ export const Additional = (props) => {
         return false;
     }
 
+    const saveReport = () => {
+        Save(globalState.state);
+    }
+
     return (
-        <Step showNext={showSave()} onNext={(n) => props.onNext(n)} step={props.step}>
+        <Step showNext={showSave()} onNext={() => saveReport()} step={props.step} nextText="Submit Self Report">
             <div class="form-row">
                 <div class="form-group col-md-5">
                     <TextInput label="First Name" value={firstName} setValue={setFirstName} />
@@ -43,6 +92,7 @@ export const Additional = (props) => {
             <div class="form-row">
                 <div class="form-group col-12 col-md-4">
                     <label>Sex</label>
+                    <CheckboxList question=" " options={options} type="radio" value={sex} setValue={setSex} />
                 </div>
                 <div class="form-group col-12 col-md-4">
                     <TextInput type="number" label="Age" value={age} setValue={setAge} />

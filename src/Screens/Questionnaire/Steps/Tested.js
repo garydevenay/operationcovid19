@@ -7,7 +7,7 @@ export const Tested = (props) => {
     const [positive, setPositive] = useState(null);
     const [testLocation, setTestLocation] = useState(null);
     const [cleared, setCleared] = useState(null);
-    const [clearedDate, setClearedDate] = useState(null);
+    const [clearedDate, setClearedDate] = useState('');
     const [reinfected, setReinfected] = useState(null);
 
     useEffect(() => {
@@ -50,7 +50,7 @@ export const Tested = (props) => {
     }
 
     return (
-        <Step showNext={(positive === true && cleared === false) || (positive === false) || (positive === true && testLocation !== null && cleared === false) || (positive === true && testLocation !== null && cleared && clearedDate !== null)} onNext={(n) => props.onNext(n)} step={props.step}>
+        <Step showNext={(positive === true && cleared === false) || (positive === false) || (positive === true && testLocation !== null && cleared === false) || (positive === true && testLocation !== null && cleared && clearedDate !== '')} onNext={(n) => props.onNext(n)} step={props.step}>
             <Boolean value={positive} setValue={setPositive} question="Have you tested positive for COVID-19?" />
             {_isPositive()}
         </Step>

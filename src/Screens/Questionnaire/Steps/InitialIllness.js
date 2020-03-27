@@ -3,7 +3,7 @@ import { Step, DatePicker } from '../Components';
 import { store } from '../store';
 
 export const InitialIllness = (props) => {
-    const [illnessDate, setIllnessDate] = useState(null);
+    const [illnessDate, setIllnessDate] = useState('');
     const { dispatch } = useContext(store);
 
     useEffect(() => {
@@ -11,7 +11,7 @@ export const InitialIllness = (props) => {
     }, [illnessDate]);
 
     return (
-        <Step showNext={illnessDate !== null} onNext={(n) => props.onNext(n)} step={props.step}>
+        <Step showNext={illnessDate !== ''} onNext={(n) => props.onNext(n)} step={props.step}>
             <DatePicker value={illnessDate} setValue={setIllnessDate} question="When did you start to feel ill?" />
         </Step>
     )

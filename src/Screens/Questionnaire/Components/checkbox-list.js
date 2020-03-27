@@ -8,6 +8,8 @@ export const CheckboxList = (props) => {
                 return [...selected, value];
             case "remove":
                 return selected.filter((_, index) => index !== value);
+            case "radio":
+                return [value];
             default:
                 return selected;
         }
@@ -16,6 +18,10 @@ export const CheckboxList = (props) => {
     const _onClick = (e) => {
         let checked = e.target.checked;
         let value = e.target.value;
+
+        if (props.type == 'radio') {
+            dispatch({ type: 'radio', value });
+        }
 
         if (checked) {
             dispatch({ type: "add", value});

@@ -107,6 +107,51 @@ const StateProvider = ({ children }) => {
                     ...state,
                     whenContracted: action.payload
                 }
+            case 'FIRST_NAME':
+                return {
+                    ...state,
+                    firstName: action.payload
+                }
+            case 'MIDDLE_NAME':
+                return {
+                    ...state,
+                    middleInitial: action.payload
+                }
+            case 'LAST_NAME':
+                return {
+                    ...state,
+                    lastName: action.payload
+                }
+            case 'SEX':
+                return {
+                    ...state,
+                    sex: action.payload
+                }
+            case 'AGE':
+                return {
+                    ...state,
+                    age: action.payload
+                }
+            case 'CITY':
+                return {
+                    ...state,
+                    city: action.payload
+                }
+            case 'TRAVEL':
+                return {
+                    ...state,
+                    recentTravel: action.payload
+                }
+            case 'FOLLOW_UP':
+                return {
+                    ...state,
+                    followUp: action.payload
+                }
+            case 'EMAIL':
+                return {
+                    ...state,
+                    email: action.payload
+                }
             default:
                 console.log(action);
                 return state;
