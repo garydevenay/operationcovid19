@@ -1,0 +1,19 @@
+[
+    { "title": "A fever above 37.8°C (100°F)", "value": "fever" },
+    { "title": "Persistent cough (coughing a lot for more than an hour, or 3 or more coughing episodes in 24 hours)", "value": "cough" },
+    { "title": "Fatigue/tiredness", "value": "tiredness" },
+    { "title": "Body aches and pains", "value": "aching" },
+    { "title": "Nasal congestion", "value": "nasal congestion" },
+    { "title": "Runny nose", "value": "runny nose" },
+    { "title": "Sore throat", "value": "sore throat" },
+    { "title": "Diarrhoea", "value": "diarrhea" },
+    { "title": "Abdominal pain", "value": "abdominal pain" },
+    { "title": "Shortness of breath", "value": "shortness of breath" },
+    { "title": "Loss of smell/taste", "value": "loss of smell" },
+    { "title": "Hoarse voice", "value": "hoarse voice" },
+    { "title": "Chest pain/tightness in your chest", "value": "chest pain" },
+    { "title": "Disorientation, confusion or drowsiness", "value": "disorientation" },
+    { "title": "Vomiting/nauseous", "value": "vomiting" },
+    { "title": "Headache", "value": "headache" },
+    { "title": "No-symptoms", "value": "no symptoms" }
+]
