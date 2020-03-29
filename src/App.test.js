@@ -1,21 +1,8 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, wait } from '@testing-library/react';
 import App from './App';
+import { act } from 'react-dom/test-utils';
 
-jest.mock('firebase', () => ({
-    initializeApp: jest.fn((firbaseconf) => {}),
-    auth: jest.fn(() => ({
-        signInAnonymously: () => jest.fn()
-      })
-    ),
-    database: jest.fn(() => ({
-          ref: jest.fn((ref) => ({
-            on: jest.fn(),
-            once: jest.fn()
-          }))
-        }))
-      }));
-  
 jest.mock('./Screens/Map/MapComponent', () => ({
   MapComponent: () => (<div></div>)
 }));
@@ -29,7 +16,9 @@ jest.mock('./API', () => ({
   GetSelfReports: async () => await jest.fn()
 }))
 
-test('renders', () => {
-  const component = render(<App />);
-  expect(component).toBeTruthy();
+test('renders', async () => {  
+  await act(async () => {
+    const component = render(<App />);
+    await wait(() => expect(component).toBeTruthy());
+  })
 });

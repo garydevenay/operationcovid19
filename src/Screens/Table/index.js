@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { GetSummary } from '../../API';
 
 export const Table = (props) => {
     const reports = props.selfReports;
@@ -42,7 +41,7 @@ export const Table = (props) => {
         <div className="padded-body col-12">
             <h2>Worldwide Statistics</h2>
 
-            <div class="table-responsive">
+            <div className="table-responsive">
                 <table className="table table-striped">
                     <thead>
                         <tr>

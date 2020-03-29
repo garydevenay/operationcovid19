@@ -1,3 +1,5 @@
+![React CI](https://github.com/HineshMandalia/operationcovid19/workflows/React%20CI/badge.svg?branch=master)
+
 ## Welcome to Operation COVID-19
 
 Our aim is to track, mobilise and prevent the spread of Coronavirus-19 to save lives and improve global public health systems.
