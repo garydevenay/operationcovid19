@@ -8,7 +8,7 @@ export const InitialIllness = (props) => {
 
     useEffect(() => {
         dispatch({ type: 'ILLNESS_START', payload: illnessDate });
-    }, [illnessDate]);
+    }, [dispatch, illnessDate]);
 
     return (
         <Step showNext={illnessDate !== ''} onNext={(n) => props.onNext(n)} step={props.step}>

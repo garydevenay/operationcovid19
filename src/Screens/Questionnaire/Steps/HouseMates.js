@@ -14,7 +14,7 @@ export const HouseMates = (props) => {
 
     useEffect(() => {
         dispatch({ type: 'ILL_HOUSEMATES', payload: houseMates });
-    }, [houseMates]);
+    }, [dispatch, houseMates]);
 
     return (
         <Step showNext={houseMates !== null && houseMates.length > 0} onNext={(n) => props.onNext(n)} step={props.step}>

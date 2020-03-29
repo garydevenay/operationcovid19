@@ -16,7 +16,7 @@ export const HowLong = (props) => {
 
     useEffect(() => {
         dispatch({ type: 'ILLNESS_LENGTH', payload: howLong });
-    }, [howLong]);
+    }, [dispatch, howLong]);
 
     return (
         <Step showNext={howLong !== null && howLong.length > 0} onNext={(n) => props.onNext(n)} step={props.step}>

@@ -8,7 +8,7 @@ export const Isolation = (props) => {
 
     useEffect(() => {
         dispatch({ type: 'IS_ISOLATED', payload: isIsolated });
-    }, [isIsolated]);
+    }, [dispatch, isIsolated]);
 
     return (
         <Step showNext={isIsolated !== null} onNext={(n) => props.onNext(n)} step={props.step}>

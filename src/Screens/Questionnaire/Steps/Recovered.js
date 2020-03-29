@@ -8,7 +8,7 @@ export const Recovered = (props) => {
 
     useEffect(() => {
         dispatch({ type: 'IS_RECOVERED', payload: recovered });
-    }, [recovered])
+    }, [dispatch, recovered])
 
     return (
         <Step showNext={recovered !== null} onNext={(n) => props.onNext(n)} step={props.step}>

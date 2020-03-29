@@ -8,7 +8,7 @@ export const Anxiety = (props) => {
 
     useEffect(() => {
         dispatch({ type: 'ANXIETY_LEVEL', payload: anxietyLevel });
-    }, [ anxietyLevel ]);
+    }, [anxietyLevel, dispatch]);
 
     return (
         <Step showNext={true} onNext={(n) => props.onNext(n)} step={props.step}>

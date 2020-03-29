@@ -23,39 +23,39 @@ export const Additional = (props) => {
 
     useEffect(() => {
         dispatch({ type: 'FIRST_NAME', payload: firstName })
-    }, [firstName]);
+    }, [dispatch, firstName]);
 
     useEffect(() => {
         dispatch({ type: 'MIDDLE_NAME', payload: middleName });
-    }, [middleName]);
+    }, [dispatch, middleName]);
 
     useEffect(() => {
         dispatch({ type: 'LAST_NAME', payload: lastName });
-    }, [lastName]);
+    }, [dispatch, lastName]);
 
     useEffect(() => {
         dispatch({ type: 'SEX', payload: sex });
-    }, [sex])
+    }, [dispatch, sex])
 
     useEffect(() => {
         dispatch({ type: 'AGE', payload: age });
-    }, [age]);
+    }, [age, dispatch]);
 
     useEffect(() => {
         dispatch({ type: 'CITY', payload: city });
-    }, [city]);
+    }, [city, dispatch]);
 
     useEffect(() => {
         dispatch({ type: 'TRAVEL', payload: travel });
-    }, [travel]);
+    }, [dispatch, travel]);
 
     useEffect(() => {
         dispatch({ type: 'FOLLOW_UP', payload: followUp });
-    }, [followUp]);
+    }, [dispatch, followUp]);
 
     useEffect(() => {
         dispatch({ type: 'EMAIL', payload: email });
-    }, [email]);
+    }, [dispatch, email]);
 
     const showSave = () => {
         if (firstName.length > 0 &&

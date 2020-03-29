@@ -21,7 +21,7 @@ export const LocationAutocomplete = (props) => {
 
             props.setValue(result);
         });
-    }, [address]);
+    }, [address, props]);
 
     return (
         <>

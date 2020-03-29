@@ -9,11 +9,11 @@ export const Contact = (props) => {
 
     useEffect(() => {
         dispatch({ type: 'CONFIRMED_CONTACT', payload: inContact });
-    }, [inContact])
+    }, [dispatch, inContact])
 
     useEffect(() => {
         dispatch({ type: 'CONFIRMED_CONTACT_DATE', payload: inContactDate });
-    }, [inContactDate])
+    }, [dispatch, inContactDate])
 
     const _when = () => {
         if (inContact !== true) return null;

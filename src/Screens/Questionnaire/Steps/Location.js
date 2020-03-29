@@ -8,7 +8,7 @@ export const Location = (props) => {
 
     useEffect(() => {
         dispatch({ type: 'CURRENT_LOCATION', payload: location });
-    }, [location])
+    }, [dispatch, location])
 
     return (
         <Step showNext={location !== null} step={props.step} onNext={(n) => props.onNext(n)}>

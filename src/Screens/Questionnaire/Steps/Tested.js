@@ -12,23 +12,23 @@ export const Tested = (props) => {
 
     useEffect(() => {
         dispatch({ type: 'IS_POSITIVE', payload: positive });
-    }, [positive]);
+    }, [dispatch, positive]);
 
     useEffect(() => {
         dispatch({ type: 'TEST_LOCATION', payload: testLocation });
-    }, [testLocation]);
+    }, [dispatch, testLocation]);
 
     useEffect(() => {
         dispatch({ type: 'CLEARED', payload: cleared});
-    }, [cleared]);
+    }, [cleared, dispatch]);
 
     useEffect(() => {
         dispatch({ type: 'CLEARED_DATE', payload: clearedDate });
-    }, [clearedDate]);
+    }, [clearedDate, dispatch]);
 
     useEffect(() => {
         dispatch({ type: 'REINFECTED', payload: reinfected });
-    }, [reinfected]);
+    }, [dispatch, reinfected]);
 
     const _isPositive = () => {
         if (!positive) return null;
