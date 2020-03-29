@@ -19,7 +19,7 @@ export const CheckboxList = (props) => {
         let checked = e.target.checked;
         let value = e.target.value;
 
-        if (props.type == 'radio') {
+        if (props.type === 'radio') {
             dispatch({ type: 'radio', value });
         }
 
@@ -40,7 +40,7 @@ export const CheckboxList = (props) => {
         {boxes.map(x => {
             return (
                 <div className="form-check mb-2" key={x.value}>
-                    <input className="form-check-input" type={props.type || "checkbox"} value={x.value} id={x.value} name={(props.type == "radio" ? props.question : x.value)} onClick={(e) => _onClick(e)} />
+                    <input className="form-check-input" type={props.type || "checkbox"} value={x.value} id={x.value} name={(props.type === "radio" ? props.question : x.value)} onClick={(e) => _onClick(e)} />
                     <label className="form-check-label" for={x.value}>
                         {x.title}
                     </label>

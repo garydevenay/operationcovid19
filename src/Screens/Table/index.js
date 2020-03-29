@@ -6,7 +6,7 @@ export const Table = (props) => {
 
     const countReportsForCountry = (country) => {
         if (reports !== null && reports.length > 0) {
-            let test = reports.filter(x => x.currentLocation.place.long_name == country);
+            let test = reports.filter(x => x.currentLocation.place.long_name === country);
             return test.length;
         }
 
@@ -14,7 +14,7 @@ export const Table = (props) => {
     }
 
     const writeRows = () => {
-        if (props.data.length == 0) return null;
+        if (props.data.length === 0) return null;
 
         props.data.sort(compare);
         return props.data.filter(c => c.Country !== '').map(x => (

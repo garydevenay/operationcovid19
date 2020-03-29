@@ -22,7 +22,7 @@ export const Contact = (props) => {
     }
 
     return (
-        <Step showNext={inContact == false || (inContact && inContactDate)} onNext={(n) => props.onNext(n)} step={props.step}>
+        <Step showNext={inContact === false || (inContact && inContactDate)} onNext={(n) => props.onNext(n)} step={props.step}>
             <Boolean value={inContact} setValue={setInContact} question="Have you been in contact with someone who tested positive for COVID-19 in the last 30 days?" />
             {_when()}
         </Step>
