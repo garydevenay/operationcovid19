@@ -24,7 +24,7 @@ const submissions = firebase.database().ref('submissions/');
 export function Save(obj) {
     let item = {
         ...obj,
-        created: new Date()
+        created: firebase.database.ServerValue.TIMESTAMP
     }
 
     firebase.database().ref(`submissions/${uuid()}`).set(item);
@@ -44,8 +44,8 @@ export function LiveCount(cb) {
 export async function GetSelfReports() {
     let array = [];
     let snapshot = await submissions.once('value');
-    let value = snapshot.val();
-    let keys = Object.keys(value);
+    let value = snapshot.val() || {};
+    let keys = Object.keys(value) || [];
 
     for(let i = 0; i < keys.length; i++) {
         let tmp = value[keys[i]];
