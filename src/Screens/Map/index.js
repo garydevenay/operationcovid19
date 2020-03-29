@@ -20,7 +20,7 @@ export const Map = () => {
     return (
 		<div class="page-body">
     		<MapComponent data={data} selfReports={selfReports} />
-			<Table data={data} selfReports={selfReports} />
+				<Table data={data} selfReports={selfReports} />
 		</div>
 	)
 }
