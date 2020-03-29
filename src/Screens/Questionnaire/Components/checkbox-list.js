@@ -32,7 +32,7 @@ export const CheckboxList = (props) => {
 
     useEffect(() => {
         props.setValue(selected);
-    }, [selected.join(',')])
+    }, [selected])
 
     return (
         <>
