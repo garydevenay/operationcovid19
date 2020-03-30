@@ -16,6 +16,7 @@ firebase.initializeApp(firebaseConfig);
 firebase.auth().signInAnonymously();
 
 const submissions = firebase.database().ref('submissions/');
+const summary = firebase.database().ref('summary/');
 // submissions.on('value', function(snapshot) {
 //     firebase.database().ref('submissionCount/').once('value').then((snapshot) => {
 //     })
@@ -41,10 +42,32 @@ export function LiveCount(cb) {
     });
 }
 
+export async function GetCountrySummary() {
+    let snapshot = await summary.once('value');
+    let value = snapshot.val();
+    
+    return firebaseToArray(value);
+}
+
 export async function GetSelfReports() {
-    let array = [];
     let snapshot = await submissions.once('value');
     let value = snapshot.val();
+
+    return firebaseToArray(value);
+}
+
+export async function GetCasesByCountry(country) {
+    let res = await axios.get(`https://api.covid19api.com/country/${country}/status/confirmed`);
+    return res.data;
+}
+
+export async function GetSummary() {
+    let res = await axios.get('https://api.covid19api.com/summary');
+    return res.data;
+}
+
+function firebaseToArray(value) {
+    let array = [];
     let keys = Object.keys(value);
 
     for(let i = 0; i < keys.length; i++) {
@@ -58,14 +81,4 @@ export async function GetSelfReports() {
     }
 
     return array;
-}
-
-export async function GetCasesByCountry(country) {
-    let res = await axios.get(`https://api.covid19api.com/country/${country}/status/confirmed`);
-    return res.data;
-}
-
-export async function GetSummary() {
-    let res = await axios.get('https://api.covid19api.com/summary');
-    return res.data;
 }
