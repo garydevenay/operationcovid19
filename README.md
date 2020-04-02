@@ -1,4 +1,4 @@
-![React CI](https://github.com/HineshMandalia/operationcovid19/workflows/React%20CI/badge.svg?branch=master)
+![React CI](https://github.com/garydevenay/operationcovid19/workflows/React%20CI/badge.svg?branch=master)
 
 ## Welcome to Operation COVID-19
 
