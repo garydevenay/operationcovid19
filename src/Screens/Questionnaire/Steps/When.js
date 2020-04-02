@@ -8,7 +8,7 @@ export const When = (props) => {
 
     useEffect(() => {
         dispatch({ type: 'WHEN_CONTRACTED', payload: when });
-    }, [when])
+    }, [dispatch, when])
 
     return (
         <Step onNext={(n) => props.onNext(n)} showNext={when !== ''} step={props.step}>

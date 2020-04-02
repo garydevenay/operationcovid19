@@ -18,9 +18,9 @@ export const Map = () => {
 	}, []);
 
     return (
-		<div class="page-body">
+		<div className="page-body">
     		<MapComponent data={data} selfReports={selfReports} />
-			<Table data={data} selfReports={selfReports} />
+				<Table data={data} selfReports={selfReports} />
 		</div>
 	)
 }

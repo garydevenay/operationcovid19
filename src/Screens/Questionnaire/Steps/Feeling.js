@@ -8,7 +8,7 @@ export const Feeling = (props) => {
 
     useEffect(() => {
         dispatch({ type: 'FEELING_CHANGE', payload: feelingRange });
-    }, [feelingRange]);
+    }, [dispatch, feelingRange]);
 
     return (
         <Step showNext={true} onNext={(n) => props.onNext(n)} step={props.step}>

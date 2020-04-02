@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { GetSummary } from '../../API';
 
 export const Table = (props) => {
     const reports = props.selfReports;
 
     const countReportsForCountry = (country) => {
         if (reports !== null && reports.length > 0) {
-            let test = reports.filter(x => x.currentLocation.place.long_name == country);
+            let test = reports.filter(x => x.currentLocation.place.long_name === country);
             return test.length;
         }
 
@@ -14,7 +13,7 @@ export const Table = (props) => {
     }
 
     const writeRows = () => {
-        if (props.data.length == 0) return null;
+        if (props.data.length === 0) return null;
 
         props.data.sort(compare);
         return props.data.filter(c => c.Country !== '').map(x => (
@@ -42,7 +41,7 @@ export const Table = (props) => {
         <div className="padded-body col-12">
             <h2>Worldwide Statistics</h2>
 
-            <div class="table-responsive">
+            <div className="table-responsive">
                 <table className="table table-striped">
                     <thead>
                         <tr>

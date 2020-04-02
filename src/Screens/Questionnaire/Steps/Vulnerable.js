@@ -10,15 +10,15 @@ export const Vulnerable = (props) => {
 
     useEffect(() => {
         dispatch({ type: 'OVER_65', payload: isOver65 });
-    }, [isOver65])
+    }, [dispatch, isOver65])
 
     useEffect(() => {
         dispatch({ type: 'PREEXISTING', payload: hasPreExisting });
-    }, [hasPreExisting]);
+    }, [dispatch, hasPreExisting]);
 
     useEffect(() => {
         dispatch({ type: 'MEDICAL_CONDITION', payload: medicalCondition });
-    }, [medicalCondition]);
+    }, [dispatch, medicalCondition]);
 
     const _hadPreExistingCondition = () => {
         if (!hasPreExisting) return null;

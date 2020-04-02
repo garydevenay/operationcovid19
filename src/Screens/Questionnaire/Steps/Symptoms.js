@@ -10,7 +10,7 @@ export const Symptoms = (props) => {
 
     useEffect(() => {
         dispatch({ type: 'CHANGE_SYMPTOMS', payload: symptoms });
-    }, [symptoms.join(',')]);
+    }, [dispatch, symptoms]);
 
     return (
         <Step showNext={symptoms.length > 0} onNext={(n) => props.onNext(n)} step={props.step}>

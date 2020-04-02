@@ -26,10 +26,13 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
     "gulp": "^4.0.2",
     "gulp-csso": "^4.0.1",
     "gulp-sass": "^4.0.2",
-    "node-sass": "^4.13.1"
+    "node-sass": "^4.13.1",
+    "react-test-renderer": "^16.13.1"
   },
   "scripts": {
     "start": "react-scripts start",
