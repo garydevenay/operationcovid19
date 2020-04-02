@@ -6,10 +6,6 @@ export const Questionnaire = () => {
     const [step, setStep] = useState(0);
     const advance = (n) => setStep(step + n);
 
-    useEffect(() => {
-        window.scrollTo(0, document.body.scrollHeight);
-    }, [step]);
-
     return (
         <QuestionnaireContext.Provider data-testid="questionnaireContext" value={step}>
             <div className="jumbotron">
