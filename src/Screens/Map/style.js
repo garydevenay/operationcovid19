@@ -17,6 +17,12 @@ const recovered_style = {
   fillOpacity: 0.7
 }
 
+const self_style = {
+  strokeWeight: 0, 
+  fillColor: "#0ED8D8", 
+  fillOpacity: 0.3
+}
+
 const map_style = [
   {
     elementType: "geometry",
@@ -276,4 +282,4 @@ const map_style = [
   }
 ];
 
-export { circle_style, map_style, death_style, recovered_style };
+export { circle_style, map_style, death_style, recovered_style, self_style };
