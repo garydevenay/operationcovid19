@@ -1,3 +1,5 @@
 import { Questionnaire } from './Questionnaire';
 
-export { Questionnaire };
+export {
+    Questionnaire
+}
