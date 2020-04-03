@@ -37,6 +37,10 @@ h2 {
 	margin-bottom: 25px;
 }
 
+a {
+	color: $secondary;
+}
+
 .container {
 	border-radius: 18px;
 	padding: 0;
@@ -45,9 +49,20 @@ h2 {
 	box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);
 }
 
-.navbar {
-	position: absolute;
-	z-index: 1000;
+.nav-container {
+	position: relative;
+	.navbar {
+		position: absolute;
+		z-index: 1000;
+		.navbar-nav {
+			flex-direction: row;
+			text-align: right;
+			a {
+				margin-right: 20px;
+				color: $light-grey;
+			}
+		}
+	}
 }
 
 .btn {
@@ -200,6 +215,22 @@ h2 {
 .google-places-autocomplete__suggestion:hover {
     background-color: rgba(0, 0, 0, 0.09);
     cursor: pointer;
+}
+
+.footer {
+	text-align: right;
+	color: $light-grey;
+	font-size: 12px;
+	a {
+		color: $light-grey;
+		font-size: 12px;
+	}
+}
+
+.github {
+	position: absolute;
+	top: 0;
+	right: 0;
 }
 
 @include media-breakpoint-down(md) {

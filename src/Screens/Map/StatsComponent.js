@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useReducer } from "react";
-import { GetCount, LiveCount } from '../../API';
+import React, { useState, useEffect } from "react";
+import { LiveCount } from '../../API';
 
 export const StatsComponent = (props) => {
 	const [confirmed, setConfirmed] = useState(0);
