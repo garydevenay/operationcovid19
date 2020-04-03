@@ -5,7 +5,7 @@ export const PrivacyPolicy = () => {
         <div className="jumbotron">
             <h1 className="display-4">Privacy Policy</h1>
             <p className="lead">Privacy Policy of Operation COVID 19 [OpCovID]</p>
-            <p>This page is used to inform website visitors and progressive web app (PWA) users regarding our policies with the collection, use, and disclosure of Personal Information if anyone decided to use our thereby known as "Service", the <a href="https://opcovid.com" target="_blank">opcovid.com</a> website.</p>
+            <p>This page is used to inform website visitors and progressive web app (PWA) users regarding our policies with the collection, use, and disclosure of Personal Information if anyone decided to use our thereby known as "Service", the <a href="https://opcovid.com" target="_blank" rel="noopener noreferrer">opcovid.com</a> website.</p>
 
             <p>If you choose to use our Service, then you agree to the collection and use of information in relation to this policy. The Personal Information that we collect is used for providing and improving the Service. We will not use or share your information with anyone except as described in this Privacy Policy.</p>
 

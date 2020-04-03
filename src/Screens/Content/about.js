@@ -18,7 +18,7 @@ export const About = () => {
 
             <p>We teamed up with Gary Devenay, Jillian Kowalchuk, Paul Manning and Yiram Mao to create this open-source project with more getting involved every day.</p>
 
-            <p>If anyone wishes to volunteer skills or other support, please contact our team at <a href="mailto:operationcovid19@gmail.com">operationcovid19@gmail.com</a> or join us on our growing <a href="https://www.facebook.com/groups/1069877326719640/about/" target="_blank">Facebook Page</a>.</p>
+            <p>If anyone wishes to volunteer skills or other support, please contact our team at <a href="mailto:operationcovid19@gmail.com">operationcovid19@gmail.com</a> or join us on our growing <a href="https://www.facebook.com/groups/1069877326719640/about/" target="_blank" rel="noopener noreferrer">Facebook Page</a>.</p>
         </div>
     )
 }

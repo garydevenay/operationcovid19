@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { QuestionnaireContext } from './QuestionnaireContext';
 import { Location, Contact, Tested, Isolation, Symptoms, Vulnerable, When, InitialIllness, HowLong, Recovered, HouseMates, Feeling, Anxiety, Additional } from './Steps';
 
