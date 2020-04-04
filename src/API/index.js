@@ -44,14 +44,14 @@ export function LiveCount(cb) {
 
 export async function GetCountrySummary() {
     let snapshot = await summary.once('value');
-    let value = snapshot.val();
+    let value = snapshot.val() || {};
     
     return firebaseToArray(value);
 }
 
 export async function GetSelfReports() {
     let snapshot = await submissions.once('value');
-    let value = snapshot.val();
+    let value = snapshot.val() || {};
 
     return firebaseToArray(value);
 }

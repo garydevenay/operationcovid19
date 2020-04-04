@@ -13,7 +13,7 @@ export const Questionnaire = () => {
                 <p className="lead">This questionnaire is intended for people who believe they may have or had Covid-19.</p>
                 
                 <p>By clicking "Start" I agree that I am submitting my information to be part of the "Operation Covid-19" database which will display anonymised metrics publicly including my answers.</p>
-                {step === 0 ? <a className="btn btn-primary btn-lg" onClick={() => advance(1)} href="#" role="button" data-testid="start">Start</a> : null}
+                {step === 0 ? <button className="btn btn-primary btn-lg" onClick={() => advance(1)} data-testid="start">Start</button> : null}
             </div>
 
             <Location onNext={(n) => advance(n)} step={1} />

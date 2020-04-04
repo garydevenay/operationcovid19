@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { GetSummary } from '../../API';
+import React from 'react';
 
 export const Table = (props) => {
     const reports = props.selfReports;
