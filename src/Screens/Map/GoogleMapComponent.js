@@ -18,7 +18,6 @@ function rescale(number) {
 const getSelfReportCircle = (reports) => {
 	return reports.map(x => {
 		
-
 		return (
 			<Circle
 				key={uuid()}

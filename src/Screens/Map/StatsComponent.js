@@ -6,7 +6,6 @@ export const StatsComponent = (props) => {
 	const [selfReported, setSelfReported] = useState(0);
 	const [recovered, setRecovered] = useState(0);
 	const [deceased, setDeceased] = useState(0);
-	const [ready, setReady] = useState(false);
 	const sum = (key) => {
 		return props.data.reduce((a, b) => a + (b[key] || 0), 0);
 	}
@@ -14,7 +13,6 @@ export const StatsComponent = (props) => {
 	const getSelfCount = async() => {
 		LiveCount((val) => {
 			setSelfReported(val);
-			setReady(true);
 		});
 	}
 
@@ -28,6 +26,7 @@ export const StatsComponent = (props) => {
 			setRecovered(sum("TotalRecovered"))
 			setDeceased(sum("TotalDeaths"))
 		}
+	// eslint-disable-next-line
 	}, [props.data]);
 
 	return (
@@ -101,7 +100,7 @@ export const StatsComponent = (props) => {
 							<span className="sub-title">It's safe and confidential</span>
 						</div>
 						<div className="button">
-							<img src="/images/self-report-cta.svg" />
+							<img src="/images/self-report-cta.svg" alt="Sub" />
 						</div>
 					</a>
 				</div>
