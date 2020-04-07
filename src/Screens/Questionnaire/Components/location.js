@@ -21,6 +21,7 @@ export const LocationAutocomplete = (props) => {
 
             props.setValue(result);
         });
+    // eslint-disable-next-line
     }, [address]);
 
     return (

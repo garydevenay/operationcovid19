@@ -13,7 +13,8 @@ jest.mock('./Screens/Table', () => ({
 
 jest.mock('./API', () => ({
   GetSummary: async () => await jest.fn(),
-  GetSelfReports: async () => await jest.fn()
+  GetSelfReports: async () => await jest.fn(),
+  GetCountrySummary: async () => await jest.fn()
 }))
 
 test('renders', async () => {  

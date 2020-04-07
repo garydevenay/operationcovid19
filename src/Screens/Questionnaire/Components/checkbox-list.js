@@ -32,6 +32,7 @@ export const CheckboxList = (props) => {
 
     useEffect(() => {
         props.setValue(selected);
+    // eslint-disable-next-line
     }, [selected])
 
     return (
