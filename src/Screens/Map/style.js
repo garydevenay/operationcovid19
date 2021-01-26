@@ -8,7 +8,7 @@ const circle_style = {
 const death_style = {
   strokeWeight: 0, 
   fillColor: "#000000", 
-  fillOpacity: 1
+  fillOpacity: 0.7
 }
 
 const recovered_style = {
